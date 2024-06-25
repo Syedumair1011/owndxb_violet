@@ -29,7 +29,7 @@ export default function HomeTwo() {
 
   // Effect to show Bootstrap modal
   useEffect(() => {
-    if (showModal && modalRef.current) {
+    if (typeof window !== "undefined" && showModal && modalRef.current) {
       const bootstrapModal = new Modal(modalRef.current);
       bootstrapModal.show();
     }
@@ -1415,14 +1415,14 @@ export default function HomeTwo() {
                         className="form-control"
                       />
                       <input
-                                type="text"
-                                className="form-control"
-                                id="phone"
-                                name="phone"
-                                value={phoneNumber} 
-                                onChange={() => { }} 
-                               hidden
-                              />
+                        type="text"
+                        className="form-control"
+                        id="phone"
+                        name="phone"
+                        value={phoneNumber}
+                        onChange={() => { }}
+                        hidden
+                      />
                     </div>
                     {/* /.End Form Group */}
                     {/* Start Form Group */}
@@ -1604,14 +1604,14 @@ export default function HomeTwo() {
                               />
                             </div>
                             <input
-                                type="text"
-                                className="form-control"
-                                id="phone"
-                                name="phone"
-                                value={phoneNumber} 
-                                onChange={() => { }} 
-                               hidden
-                              />
+                              type="text"
+                              className="form-control"
+                              id="phone"
+                              name="phone"
+                              value={phoneNumber}
+                              onChange={() => { }}
+                              hidden
+                            />
                             <div className="form-group mb-4">
                               <label className="required">Your Comments</label>
                               <textarea
@@ -1728,9 +1728,9 @@ export default function HomeTwo() {
                                 className="form-control"
                                 id="phone"
                                 name="phone"
-                                value={phoneNumber} 
-                                onChange={() => { }} 
-                               hidden
+                                value={phoneNumber}
+                                onChange={() => { }}
+                                hidden
                               />
                             </div>
                             <div className="form-group mb-4">
