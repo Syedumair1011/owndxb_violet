@@ -1,27 +1,28 @@
-"use client"
+"use client";
 import React, { useEffect, useRef } from 'react';
-import $ from 'jquery';
-import 'magnific-popup/dist/magnific-popup.css';
 
 export default function AboutVideoContainer() {
     const videoRef = useRef(null);
 
     useEffect(() => {
+        if (typeof window === 'undefined') return; // Ensure code runs only in the browser
+
         // Function to check if element is in viewport
         const isElementInViewport = (el) => {
+            if (!el) return false; // Return false if el is null
             const rect = el.getBoundingClientRect();
             return (
                 rect.top >= 0 &&
                 rect.left >= 0 &&
-                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+                rect.bottom <= (window.innerHeight || window.clientHeight) &&
+                rect.right <= (window.innerWidth || window.clientWidth)
             );
         };
 
         // Function to handle autoplay when element is in viewport
         const handleAutoplay = () => {
             const video = videoRef.current;
-            if (isElementInViewport(video) && video.paused) {
+            if (video && isElementInViewport(video) && video.paused) {
                 video.play().catch(error => console.error('Autoplay error:', error));
             }
         };
@@ -44,7 +45,6 @@ export default function AboutVideoContainer() {
     }, []);
 
     return (
-
         <div className="about-video position-relative">
             <video
                 ref={videoRef}

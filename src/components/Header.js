@@ -2,7 +2,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import ImageGallery from "./image-gallery";
 const links = [
     { href: '/home-2', text: 'Buy' },
     { href: '/home-2', text: 'Home 1' },
